@@ -1,0 +1,12 @@
+syntax = "proto3";
+package main;
+
+import "chunk.proto";
+
+message GetRequest {
+    string Path = 1;
+}
+
+service FileTransfer {
+    rpc Get(GetRequest) returns (stream chunkio.Chunk) {}
+}
